@@ -1,25 +1,27 @@
 
 
 $(document).ready(function(){
-	
-	var line1 = new iterator('Hello, my name is Johnny On.');
-	/*
-	var interval = setInterval(function() {
-		var character = line1.get();
-		if (character != null) {
-			$('#intro').append('<span>' + character + '</span>')
-		} else {
-			clearInterval(interval);
-		}
-	}, 75);
-	*/
-	
-	
+	fitToContainer();
+	generateText();
 })
 
-function iterator(line) {
+
+$(window).resize(function() {
+	fitToContainer();
+});
+
+function fitToContainer() {
+	
+	$('#intro').css('margin-top', Math.floor($(window).height()* 3 / 6) - 3.5 * 14);
+	
+};
+
+function iterator(line, newLine) {
 	this.line = line;
 	this.index = 0;
+	this.link = false;
+	this.start = true;
+	this.newLine = newLine;
 	this.peek = function() {
 		if (this.index < this.line.length) {
 			return this.line[this.index]
@@ -34,10 +36,13 @@ function iterator(line) {
 	}
 }
 
-function linkIterator(line) {
+function linkIterator(line, newLine) {
 	this.line = line;
 	this.index = 0;
+	this.link = true;
 	this.str = "";
+	this.start = true;
+	this.newLine = newLine;
 	this.get = function() {
 		if (this.index < this.line.length) {
 			this.str += this.line[this.index];
@@ -49,34 +54,92 @@ function linkIterator(line) {
 	}
 }
 
-/*
-var iterator = (function () {
-	var intro = ['Hello, my name is Johnny On.'];
-	var index = 0;
-	var subIndex = 0;
-	return {
-		get: function () {
-			if (index < intro.length) {
-				var character = intro[index][subIndex];
-				subIndex++;
-			
-			if (subIndex == intro[index].length) {
-				
-				subIndex = 0;
-				index++;
-			}
-			return character;
-			} else {
-				return null;
-			}
-		},
-		
-		peek: function() {
-			if (intro < intro.length) {
-				return intro[index][subIndex];
-			}
-			return null;
-		}
+function addSpace(n) {
+	var str = "";
+	for (var i = 0; i < n; i++) {
+		str += '&nbsp;'
 	}
-})();
-*/
+	return str;
+}
+
+function generateText() {
+	var line1 = new iterator('Hello, my name is Johnny On._', true);
+	var line2 = new iterator('I am a UC Berkeley Graduate with degrees in Microbiology and Applied Mathematics._', true);
+	var line3 = new iterator('Currently, I work as a Junior Web Developer focusing on JavaScript and Netsuite._', true);
+	var line4 = new iterator('Feel free to take a look at my latest projects on the ', false);
+	line4.extra = true;
+	var line5 = new linkIterator('web portfolio page.', true);
+	var line6 = new iterator('Based in Las Vegas, NV. Enquires at johnnyon@berkeley.edu.');
+	var lines = [line1, line2, line3, line4, line5, line6];
+	var index = 0;
+	var interval = setInterval(function() {
+		if (index < lines.length) {
+			var line = lines[index];
+			if (line.link) {	
+				if (line.start) {
+					line.start = false;
+					$('#intro').children().last().remove();
+					$('#intro').append('<a id="first" href="#"></a>');
+					$('#first').html('<span style="color: white">' + line.line + '</span>')
+				}
+				let character = line.get();
+				if (character != null) {
+					
+					$('#first').html(character);
+					$('#first').append('<span style="color: white">' + line.line.substring(line.index) + '</span>')
+				} else {
+					if (line.newLine) {
+						
+						$('#intro').append('<br>');
+					}
+					index++;
+				}
+			} else {
+				if (line.start) {
+					line.start = false;
+					
+					$('#intro').append('<span style="color: white">' + line.line + '</span>');
+					if (line.extra) {
+						$('#intro').append('<span style="color: white">web portfolio page.</span>');
+					}
+					
+				}
+				var character = line.get();
+				if (character != null) {
+					$('#intro').children().last().remove();
+					if (line.extra) {
+						$('#intro').children().last().remove();
+					}
+					$('#intro').append('<span>' + character + '</span>');
+					$('#intro').append('<span style="color: white">' + line.line.substring(line.index) + '</span>');
+					if (line.extra) {
+						$('#intro').append('<span style="color: white">web portfolio page.</span>');
+					}
+					
+				} else {
+					
+					if (line.newLine) {
+						$('#intro').children().last().remove();
+						
+						$('#intro').children().last().css("color", "white")
+						$('#intro').append('<br>');
+					}
+					index++;
+				}
+			}
+		} else {
+			clearInterval(interval);
+			var on = false;
+			$('#intro').append('<span id="underscore">_</span>');
+			setInterval(function() {
+				if (on) {
+					on = !on;
+					$('#underscore').css('color', 'white');
+				} else {
+					on = !on;
+					$('#underscore').css('color', 'black');
+				}
+			}, 250)
+		}
+	}, 16);
+}
