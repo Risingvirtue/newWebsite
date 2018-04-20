@@ -14,3 +14,38 @@ body {
 	width: 200px;
 	margin-left: -75px;
 }
+
+#nav {
+	position: absolute;
+	left: 0px;
+	top: 50%;
+}
+
+.text-center {
+	text-align: center;
+}
+tr {
+    vertical-align: middle;
+    padding: 0;
+}
+
+
+th {
+	background-color: red;
+	height: 50px;
+	width: 50px;
+	-webkit-transition: width 2s; /* Safari */
+    transition: width 2s;
+}
+
+th:hover {
+	width: 100px;
+}
+
+.icon {
+	font-size: 50px;
+}
+
+.contact {
+    text-decoration: none;
+}
