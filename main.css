@@ -30,25 +30,36 @@ tr {
 }
 
 
-td {
+.side-bar-cell {
+	border: 1px solid black;
 	text-align: center;
-	padding: 10px;
 	background-color: red;
+	padding-top: 15px;
+	padding-left: 15px;
 	height: 50px;
 	width: 50px;
 	-webkit-transition-property: all;
 	-webkit-transition-duration: 1s;
 }
-
-td:hover {
+.side-bar-cell:hover {
 	width: 100px;
-	padding-right: 0px;
+	
 }
 
 .icon {
 	font-size: 30px;
+	
 }
 
 .contact {
     text-decoration: none;
+}
+i {
+	float: right;
+	padding-right: 20px;
+	
+}
+
+i.fa-facebook {
+	padding-right: 25px;
 }
