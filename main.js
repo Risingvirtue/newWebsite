@@ -16,12 +16,13 @@ function fitToContainer() {
 	
 };
 
-function iterator(line, newLine) {
+function iterator(line, newLine, style) {
 	this.line = line;
 	this.index = 0;
 	this.link = false;
 	this.start = true;
 	this.newLine = newLine;
+	this.style = style;
 	this.peek = function() {
 		if (this.index < this.line.length) {
 			return this.line[this.index]
@@ -36,13 +37,14 @@ function iterator(line, newLine) {
 	}
 }
 
-function linkIterator(line, newLine) {
+function linkIterator(line, newLine, style) {
 	this.line = line;
 	this.index = 0;
 	this.link = true;
 	this.str = "";
 	this.start = true;
 	this.newLine = newLine;
+	this.style = style;
 	this.get = function() {
 		if (this.index < this.line.length) {
 			this.str += this.line[this.index];
@@ -63,7 +65,7 @@ function addSpace(n) {
 }
 
 function generateText() {
-	var line1 = new iterator('Hello, my name is Johnny On._', true);
+	var line1 = new iterator('Hello, my name is Johnny On._', true, "font-size: 25px; font-weight: bold");
 	var line2 = new iterator('I am a UC Berkeley Graduate with degrees in Microbiology and Applied Mathematics._', true);
 	var line3 = new iterator('Currently, I work as a Junior Web Developer focusing on JavaScript and Netsuite._', true);
 	var line4 = new iterator('Feel free to take a look at my latest projects on the ', false);
@@ -110,8 +112,17 @@ function generateText() {
 					if (line.extra) {
 						$('#intro').children().last().remove();
 					}
-					$('#intro').append('<span>' + character + '</span>');
-					$('#intro').append('<span style="color: white">' + line.line.substring(line.index) + '</span>');
+					if (line.style != null) {
+						$('#intro').append('<span style="' + line.style + '">' + character + '</span>');
+					} else {
+						$('#intro').append('<span>' + character + '</span>');
+					}
+					if (line.style != null) {
+						$('#intro').append('<span style="color: white; ' + line.style + '">' + line.line.substring(line.index) + '</span>');
+					} else {
+						$('#intro').append('<span style="color: white;">' + line.line.substring(line.index) + '</span>');
+					}
+					
 					if (line.extra) {
 						$('#intro').append('<span style="color: white">web portfolio page.</span>');
 					}
