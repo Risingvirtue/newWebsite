@@ -30,20 +30,23 @@ tr {
 }
 
 
-th {
+td {
+	text-align: center;
+	padding: 10px;
 	background-color: red;
 	height: 50px;
 	width: 50px;
-	-webkit-transition: width 2s; /* Safari */
-    transition: width 2s;
+	-webkit-transition-property: all;
+	-webkit-transition-duration: 1s;
 }
 
-th:hover {
+td:hover {
 	width: 100px;
+	padding-right: 0px;
 }
 
 .icon {
-	font-size: 50px;
+	font-size: 30px;
 }
 
 .contact {
