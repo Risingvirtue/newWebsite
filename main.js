@@ -1,18 +1,32 @@
-
-
+var canvas = document.getElementById('main');
+var ctx = canvas.getContext('2d');
+var dots = [];
 $(document).ready(function(){
-	fitToContainer();
+	
+	fitToContainer(true);
 	generateText();
+	requestAnimationFrame(draw);
+	//highlight when angle
 })
 
 
 $(window).resize(function() {
 	fitToContainer();
+	
 });
 
-function fitToContainer() {
+function fitToContainer(bool) {
 	
 	$('#intro').css('margin-top', Math.floor($(window).height()* 3 / 6) - 3.5 * 14);
+	canvas.height = window.innerHeight;
+	canvas.width = window.innerWidth;
+	if (bool) {
+		createDots();
+	} else {
+		for (var i = 0; i < dots.length; i++) {
+			dots[i].resize(canvas.width, canvas.height);
+		}
+	}
 	
 };
 

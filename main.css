@@ -1,24 +1,17 @@
 body {
 	background-color: #eee;
 	font-size: 20px;
+	font-family: Helvetica;
+	color: #696969;
 }
 
 
-#portfolio {
-	position: absolute;
-	left: 100%;
-	top: 50%;
-	-webkit-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%);
-	height: 75px;
-	width: 200px;
-	margin-left: -75px;
-}
 
 #nav {
 	position: absolute;
 	left: 0px;
 	top: 50%;
+	margin-top: -75px;
 }
 
 .text-center {
@@ -31,9 +24,8 @@ tr {
 
 
 .side-bar-cell {
-	border: 1px solid black;
+	
 	text-align: center;
-	background-color: red;
 	padding-top: 15px;
 	padding-left: 15px;
 	height: 50px;
@@ -46,13 +38,26 @@ tr {
 	
 }
 
+#fb {
+	background-color: rgb(59,89,152);
+	
+}
+
+#linkedIn {
+	background-color: rgb(0, 119, 181);
+}
+
+#github {
+	background-color: #333;
+}
 .icon {
 	font-size: 30px;
 	
 }
 
-.contact {
+a {
     text-decoration: none;
+	
 }
 i {
 	float: right;
@@ -62,4 +67,17 @@ i {
 
 i.fa-facebook {
 	padding-right: 25px;
+	
+}
+
+i {
+	color: white;
+}
+canvas {
+	
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	z-index: -1;
 }
