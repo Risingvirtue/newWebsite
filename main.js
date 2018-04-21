@@ -19,7 +19,7 @@ $(window).resize(function() {
 
 function fitToContainer(bool) {
 	
-	$('#intro').css('margin-top', Math.floor($(window).height()* 3 / 6) - 3.5 * 14);
+	$('#intro').css('margin-top', Math.floor($(window).height()* 3 / 6) - 3.5 * 20);
 	canvas.height = window.innerHeight;
 	canvas.width = window.innerWidth;
 	if (bool) {

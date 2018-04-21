@@ -5,23 +5,16 @@ body {
 	color: white;
 }
 
-
-
 #nav {
 	position: absolute;
 	left: 0px;
 	top: 50%;
-	margin-top: -75px;
+	margin-top: -97.5px;
 }
 
 .text-center {
 	text-align: center;
 }
-tr {
-    vertical-align: middle;
-    padding: 0;
-}
-
 
 .side-bar-cell {
 	
@@ -75,10 +68,32 @@ i {
 	color: white;
 }
 canvas {
-	
 	position: absolute;
 	top: 0;
 	left: 0;
 
 	z-index: -1;
 }
+
+.portfolio {
+	position: absolute;
+	margin-top: -37.5px;
+	right: 0px;
+	top: 50%;
+	background-color: rgba(0,0,0,0);
+	border: white 1px solid;
+	
+	width: 150px;
+	height: 75px;
+	color: white;
+	font-size: 15px;
+	
+	
+}
+
+i.fa-angle-right {
+
+	margin: auto;
+	font-size: 50px;
+}
+
