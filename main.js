@@ -1,13 +1,14 @@
 var canvas = document.getElementById('main');
 var ctx = canvas.getContext('2d');
 var dots = [];
+var dotsSort = [];
 var mousePos = {x: 0, y:0};
+var time = 0;
 $(document).ready(function(){
 	
 	fitToContainer(true);
 	generateText();
 	requestAnimationFrame(draw);
-	//highlight when angle
 })
 
 
@@ -80,6 +81,7 @@ function addSpace(n) {
 }
 
 function generateText() {
+	
 	var line1 = new iterator('Hello, my name is Johnny On._', true, "font-size: 25px; font-weight: bold");
 	var line2 = new iterator('I am a UC Berkeley Graduate with degrees in Microbiology and Applied Mathematics._', true);
 	var line3 = new iterator('Currently, I work as a Junior Web Developer focusing on JavaScript and Netsuite._', true);
@@ -97,13 +99,13 @@ function generateText() {
 					line.start = false;
 					$('#intro').children().last().remove();
 					$('#intro').append('<a id="first" href="#"></a>');
-					$('#first').html('<span style="color: white">' + line.line + '</span>')
+					$('#first').html('<span style="color: rgba(0,0,0,0)">' + line.line + '</span>')
 				}
 				let character = line.get();
 				if (character != null) {
 					
 					$('#first').html(character);
-					$('#first').append('<span style="color: white">' + line.line.substring(line.index) + '</span>')
+					$('#first').append('<span style="color: rgba(0,0,0,0)">' + line.line.substring(line.index) + '</span>')
 				} else {
 					if (line.newLine) {
 						$('#intro').append('<br>');
@@ -114,9 +116,9 @@ function generateText() {
 				if (line.start) {
 					line.start = false;
 					
-					$('#intro').append('<span style="color: white">' + line.line + '</span>');
+					$('#intro').append('<span style="color: rgba(0,0,0,0)">' + line.line + '</span>');
 					if (line.extra) {
-						$('#intro').append('<span style="color: white">web portfolio page.</span>');
+						$('#intro').append('<span style="color: rgba(0,0,0,0)">web portfolio page.</span>');
 					}
 					
 				}
@@ -132,13 +134,13 @@ function generateText() {
 						$('#intro').append('<span>' + character + '</span>');
 					}
 					if (line.style != null) {
-						$('#intro').append('<span style="color: white; ' + line.style + '">' + line.line.substring(line.index) + '</span>');
+						$('#intro').append('<span style="color: rgba(0,0,0,0); ' + line.style + '">' + line.line.substring(line.index) + '</span>');
 					} else {
-						$('#intro').append('<span style="color: white;">' + line.line.substring(line.index) + '</span>');
+						$('#intro').append('<span style="color: rgba(0,0,0,0);">' + line.line.substring(line.index) + '</span>');
 					}
 					
 					if (line.extra) {
-						$('#intro').append('<span style="color: white">web portfolio page.</span>');
+						$('#intro').append('<span style="color: rgba(0,0,0,0)">web portfolio page.</span>');
 					}
 					
 				} else {
@@ -146,7 +148,7 @@ function generateText() {
 					if (line.newLine) {
 						$('#intro').children().last().remove();
 						
-						$('#intro').children().last().css("color", "red");
+						$('#intro').children().last().css("color", "rgba(0,0,0,0)");
 						$('#intro').append('<br>');
 					}
 					index++;
@@ -162,7 +164,7 @@ function generateText() {
 					$('#underscore').css('color', 'white');
 				} else {
 					on = !on;
-					$('#underscore').css('color', 'black');
+					$('#underscore').css('color', 'rgba(0,0,0,0)');
 				}
 			}, 250)
 		}

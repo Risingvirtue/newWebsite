@@ -9,19 +9,19 @@ function Dot(x, y, center, color) {
 	}
 	this.center = center;
 	this.color = color;
-	this.lineColor = 'black';
+	this.lineColor = '#696969';
 	this.draw = function() {
-		console.log(this.lineColor);
+		
 		ctx.beginPath();
 		ctx.strokeStyle = this.lineColor;
 		ctx.moveTo(this.x, this.y);
 		var newX = this.x + 2000 * Math.sin(Math.PI /6);
 		var newY = this.y - 2000 * Math.cos(Math.PI /6);
 		ctx.lineTo(newX, newY);
-		
 		ctx.stroke();
+		
 		ctx.beginPath();
-		ctx.arc(this.x, this.y, 2, 0, 2* Math.PI);
+		ctx.arc(this.x, this.y, 1, 0, 2* Math.PI);
 		ctx.fillStyle = this.color;
 		ctx.fill();
 		ctx.closePath();
@@ -45,13 +45,13 @@ function Dot(x, y, center, color) {
 	this.changeLineColor = function(x,y) {
 		var angle = Math.atan((x - this.x) / (this.y - y));
 		angle = angle * 180 / Math.PI;
-		console.log(angle);
+		
 		if (angle > 20 && angle < 40) {
 			
-			this.lineColor = this.color;
+			this.lineColor = getAlphaColor(this.color);
 			
 		} else {
-			this.lineColor = '#696969';
+			this.lineColor = 'rgba(69,69,69,0.35)';
 		}
 		
 		
@@ -61,22 +61,26 @@ function Dot(x, y, center, color) {
 
 function createDots() {
 	var r = Math.min(canvas.width, canvas.height);
-	var colors = ['#FF0000', '#800000', '#00FFFF', 'FF00FF', '#C0C0C0', '#FFFF00', '#00FF00', '#0000FF', '#800080'];
+	var colors = ['rgba(255, 0, 255, 1)', 'rgba(139, 0, 0, 1)', 'rgba(0, 255, 255, 1)', 'rgba(192, 192, 192, 1)',
+				'rgba(255, 255, 0, 1)', 'rgba(0, 255, 0, 1)', 'rgba(0, 0, 255, 1)', 'rgba(128, 0, 128, 1)'];
+	console.log(getAlphaColor(colors[0]));
 	for (var i = 0; i < 100; i++) {
 		var x = canvas.width / 2 + Math.round((2 * Math.random() - 1) * r / 2);
 		var y = canvas.height / 2 + Math.round((2 * Math.random() - 1) * r / 2);
 		var color = Math.floor(Math.random() * colors.length);
 		dots.push(new Dot(x, y,{x: canvas.width / 2, y: canvas.height / 2}, colors[color]));
+		dotsSort.push({dot: dots[i],i: i});
 	}
 }
 
 function draw() {
+	time++;
 	requestAnimationFrame(draw);
 	ctx.clearRect(0,0, canvas.width, canvas.height);
+
 	for (var i = 0; i < dots.length; i++) {
 		dots[i].increment();
 		dots[i].changeLineColor(mousePos.x, mousePos.y);
-		
 		dots[i].draw();
 	}
 }
@@ -92,3 +96,10 @@ function getMousePos(canvas, evt) {
 document.body.addEventListener("mousemove", function (e) {
 	mousePos = getMousePos(canvas, e);
 });
+
+function getAlphaColor(color) {
+	var rgba = color.substring(0, color.length - 2);
+	rgba += '0.5)';
+	return rgba;
+	
+}
