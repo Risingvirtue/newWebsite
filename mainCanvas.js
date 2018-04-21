@@ -1,5 +1,5 @@
 
-function Dot(x, y, center) {
+function Dot(x, y, center, color) {
 	this.x = x;
 	this.y = y; 
 	this.r = Math.sqrt(Math.pow(center.x - x, 2) + Math.pow(center.y - y, 2));
@@ -8,17 +8,20 @@ function Dot(x, y, center) {
 		this.t -= Math.PI;
 	}
 	this.center = center;
-	this.color = 'yellow';
+	this.color = color;
+	this.lineColor = 'black';
 	this.draw = function() {
 		
 		ctx.beginPath();
+		ctx.strokeColor = this.lineColor;
 		ctx.moveTo(this.x, this.y);
 		var newX = this.x + 2000 * Math.sin(Math.PI /6);
 		var newY = this.y - 2000 * Math.cos(Math.PI /6);
 		ctx.lineTo(newX, newY);
+		
 		ctx.stroke();
 		ctx.beginPath();
-		ctx.arc(this.x, this.y, 5, 0, 2* Math.PI);
+		ctx.arc(this.x, this.y, 2, 0, 2* Math.PI);
 		ctx.fillStyle = this.color;
 		ctx.fill();
 		ctx.closePath();
@@ -43,11 +46,12 @@ function Dot(x, y, center) {
 
 function createDots() {
 	var r = Math.min(canvas.width, canvas.height);
+	var colors = ['#FF0000', '#800000', '#00FFFF', 'FF00FF', '#C0C0C0', '#FFFF00', '#00FF00', '#0000FF', '#800080'];
 	for (var i = 0; i < 100; i++) {
 		var x = canvas.width / 2 + Math.round((2 * Math.random() - 1) * r / 2);
 		var y = canvas.height / 2 + Math.round((2 * Math.random() - 1) * r / 2);
-		dots.push(new Dot(x, y,{x: canvas.width / 2, y: canvas.height / 2}));
-		
+		var color = Math.floor(Math.random() * colors.length);
+		dots.push(new Dot(x, y,{x: canvas.width / 2, y: canvas.height / 2}, colors[color]));
 	}
 }
 
