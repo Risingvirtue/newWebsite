@@ -1,0 +1,21 @@
+
+ul {
+  list-style-type: none;
+  padding-left:0;
+}
+
+li {
+	float: left;
+	border: black 1px solid;
+	margin-right: 5px;
+	padding: 5px;
+}
+
+.width {
+	width: 50%;
+	margin-left: 25%;
+}
+
+.select li:hover {
+	background-color: #eee;
+}
