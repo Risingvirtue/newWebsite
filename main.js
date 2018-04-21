@@ -1,6 +1,7 @@
 var canvas = document.getElementById('main');
 var ctx = canvas.getContext('2d');
 var dots = [];
+var mousePos = {x: 0, y:0};
 $(document).ready(function(){
 	
 	fitToContainer(true);
@@ -105,7 +106,6 @@ function generateText() {
 					$('#first').append('<span style="color: white">' + line.line.substring(line.index) + '</span>')
 				} else {
 					if (line.newLine) {
-						
 						$('#intro').append('<br>');
 					}
 					index++;
@@ -146,7 +146,7 @@ function generateText() {
 					if (line.newLine) {
 						$('#intro').children().last().remove();
 						
-						$('#intro').children().last().css("color", "white")
+						$('#intro').children().last().css("color", "red");
 						$('#intro').append('<br>');
 					}
 					index++;

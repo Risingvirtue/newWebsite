@@ -11,9 +11,9 @@ function Dot(x, y, center, color) {
 	this.color = color;
 	this.lineColor = 'black';
 	this.draw = function() {
-		
+		console.log(this.lineColor);
 		ctx.beginPath();
-		ctx.strokeColor = this.lineColor;
+		ctx.strokeStyle = this.lineColor;
 		ctx.moveTo(this.x, this.y);
 		var newX = this.x + 2000 * Math.sin(Math.PI /6);
 		var newY = this.y - 2000 * Math.cos(Math.PI /6);
@@ -41,6 +41,21 @@ function Dot(x, y, center, color) {
 		this.center.x = width / 2;
 		this.center.y = height / 2;
 	}
+	
+	this.changeLineColor = function(x,y) {
+		var angle = Math.atan((x - this.x) / (this.y - y));
+		angle = angle * 180 / Math.PI;
+		console.log(angle);
+		if (angle > 20 && angle < 40) {
+			
+			this.lineColor = this.color;
+			
+		} else {
+			this.lineColor = '#696969';
+		}
+		
+		
+	}
 }
 
 
@@ -60,6 +75,8 @@ function draw() {
 	ctx.clearRect(0,0, canvas.width, canvas.height);
 	for (var i = 0; i < dots.length; i++) {
 		dots[i].increment();
+		dots[i].changeLineColor(mousePos.x, mousePos.y);
+		
 		dots[i].draw();
 	}
 }
@@ -71,3 +88,7 @@ function getMousePos(canvas, evt) {
       y: evt.clientY - rect.top
     };
 }
+
+document.body.addEventListener("mousemove", function (e) {
+	mousePos = getMousePos(canvas, e);
+});
