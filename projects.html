@@ -8,6 +8,7 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<!-- jQuery library -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		
 		<link rel="stylesheet" type "text/css" href="projects.css">
 	</head>
 	
@@ -19,23 +20,23 @@
 			<div class="width">
 				<ul class="select">
 					<li>
-						<span>Show All</span>
+						<span id="all" class="active" onclick="selectButton('all')">Show All</span>
 					</li>
 					<li>
-						<span>Java</span>
+						<span id="java" onclick="selectButton('java')">Java</span>
 					</li>
 					<li>
-						<span>Python</span>
+						<span id="python" onclick="selectButton('python')">Python</span>
 					</li>
 					<li>
-						<span>JavaScript</span>
+						<span id="javascript" onclick="selectButton('javascript')">JavaScript</span>
 					</li>
 				</ul>
 			</div>
 			<br>
 			<div class="width">
 				<ul class="projects">
-					<li id="li1">
+					<li class="javascript">
 						<div class="text">
 							<div class="bold">Seasons</div>
 							<div class="describe">Canvas, Animation, Rotation, OOP</div>

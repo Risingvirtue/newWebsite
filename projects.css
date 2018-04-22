@@ -1,14 +1,15 @@
 body {
 	font-size: 20px;
 	font-family: Helvetica;
-
 }
 
 ul {
   list-style-type: none;
   padding-left:0;
 }
-
+.select li {
+	cursor: pointer;
+}
 .select li span {
 	float: left;
 	border: black 1px solid;
@@ -80,7 +81,6 @@ li img {
 	height: 25px;
 }
 
-
 .projects li:hover > .button{
 	margin-bottom: calc(20% - 25px);
 	visibility: visible;
@@ -93,5 +93,9 @@ li img {
 
 .projects li:hover > .img{
 	opacity: 0;
+}
+
+.active {
+	background-color: #00BFFF;
 }
 
