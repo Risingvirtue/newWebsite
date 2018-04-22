@@ -1,5 +1,5 @@
 var active = 'all';
-var selectArr = ['all', 'java', 'python', 'javascript'];
+var selectArr = ['java', 'python', 'javascript'];
 $(document).ready(function(){
 	$('#' + active + ' > .top').css({'left': '0px', 'opacity': '1'});
 	$('#' + active + ' > .bottom').css({'right': '0px', 'opacity': '1'});
@@ -24,7 +24,7 @@ function resize() {
 
 
 function selectButton(type) {
-	console.log(type);
+	console.log(type == 'all');
 	
 	if (type != active) {
 		$('#' + active + ' > .top').css({'left': '100%', 'opacity': '0'});
@@ -33,16 +33,36 @@ function selectButton(type) {
 		$('#' + type + ' > .top').css({'left': '0px', 'opacity': '1'});
 		$('#' + type + ' > .bottom').css({'right': '0px', 'opacity': '1'});
 
+		
+		if (type == 'all') {
+			setTimeout(function() {
+				for (var i =0 ; i < selectArr.length; i++) {
+					$('.' + selectArr[i]).css('display', 'block');
+				}
+			}, 500);
+			
+		} else {
+			setTimeout(function() {
+				for (var i = 0 ; i < selectArr.length; i++) {
+					if (selectArr[i] == type) {
+						$('.' + selectArr[i]).css('display', 'block');
+					} else{
+						$('.' + selectArr[i]).css('display', 'none');
+					}
+				}
+			}, 500);
+			
+		}
 		active = type;
 	}
 	
-	//$('#right').css('left', '0px');
-	//$('#left').css('right', '0px');
-	//$('#loading-text').css('opacity', '1');
+	$('#right').css('left', '0px');
+	$('#left').css('right', '0px');
+	$('#loading-text').css('opacity', '1');
 	setTimeout(function() {
-	//	$('#loading-text').css('opacity', '0');
-		//$('#right').css('left', '100%');
-		//$('#left').css('right', '100%');
+		$('#loading-text').css('opacity', '0');
+		$('#right').css('left', '100%');
+		$('#left').css('right', '100%');
 		
 	}, 1000)
 	//$('.javascript').css({height: 0, width: 0, opacity: "0"});

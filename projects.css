@@ -22,6 +22,7 @@ ul {
 	float: left;
 	overflow: hidden;
 	margin-right: 15px;
+	
 
 
 }
@@ -37,6 +38,8 @@ ul {
 
 li {
 	text-align: center;
+	margin-right: 15px;
+	margin-bottom: 15px;
 }
 .loading-select {
 	position: absolute;
@@ -85,7 +88,7 @@ li {
 .projects li {
 	position: relative;
 	padding: 0px;
-	width: 50%;
+	width: calc(50% - 30px);
 	float: left;
 	
 }
