@@ -65,8 +65,10 @@ function createDots() {
 				'rgba(255, 255, 0, 1)', 'rgba(0, 255, 0, 1)', 'rgba(0, 0, 255, 1)', 'rgba(128, 0, 128, 1)'];
 	console.log(getAlphaColor(colors[0]));
 	for (var i = 0; i < 100; i++) {
-		var x = canvas.width / 2 + Math.round((2 * Math.random() - 1) * r / 2);
-		var y = canvas.height / 2 + Math.round((2 * Math.random() - 1) * r / 2);
+		var x = canvas.width / 2 + Math.round((2 * Math.random() - 1) * r/2 );
+		var y = canvas.height / 2 + Math.round((2 * Math.random() - 1) * r /2);
+		//var x = canvas.width / 2 + Math.round((2 * Math.random() - 1) * canvas.width / 2);
+		//var y = canvas.height / 2 + Math.round((2 * Math.random() - 1) * canvas.height / 2);
 		var color = Math.floor(Math.random() * colors.length);
 		dots.push(new Dot(x, y,{x: canvas.width / 2, y: canvas.height / 2}, colors[color]));
 		dotsSort.push({dot: dots[i],i: i});
