@@ -28,4 +28,11 @@ function selectButton(type) {
 		$('#' + type).toggleClass('active');
 		active = type;
 	}
+	$('#right').css('left', '0px');
+	$('#left').css('right', '0px');
+	setTimeout(function() {
+		$('#right').css('left', '100%');
+		$('#left').css('right', '100%');
+	}, 1000)
+	//$('.javascript').css({height: 0, width: 0, opacity: "0"});
 }
