@@ -5,6 +5,21 @@ body {
 	background-color: #202020;
 }
 
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #555; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #444; 
+}
+
 ul {
   list-style-type: none;
   padding-left:0;
@@ -158,7 +173,7 @@ li img {
 }
 
 .loading {
-	background-color: black;
+	
 	position: fixed;
 	width: 100%;
 	height: 50%;
@@ -167,11 +182,13 @@ li img {
 #right {
 	left: 100%;
 	top: 0%;
+	background-color: #222;
 }
 
 #left {
 	right: 100%;
 	top: 50%;
+	background-color: #333;
 }
 
 #loading-text {
