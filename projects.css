@@ -1,11 +1,14 @@
 body {
 	font-size: 20px;
 	font-family: Helvetica;
+	color: white;
+	background-color: #202020;
 }
 
 ul {
   list-style-type: none;
   padding-left:0;
+
 }
 
 .javascript {
@@ -18,6 +21,8 @@ ul {
 	padding: 5px;
 	float: left;
 	overflow: hidden;
+	margin-right: 15px;
+
 
 }
 .select li span {
@@ -34,23 +39,25 @@ li {
 	text-align: center;
 }
 .loading-select {
-	background-color: black;
 	position: absolute;
 	width: 100%;
 	height: 50%;
 	transition:all 0.5s;
 }
 .top {
+	background-color: #505050;
 	left: 100%;
 	top: 0%;
 	opacity: 0;
-	
+	z-index: -1;
 }
 
 .bottom {
+	background-color: #303030;
 	right: 100%;
 	top: 50%;
 	opacity: 0;
+	z-index: -1;
 	
 }
 
@@ -61,6 +68,16 @@ li {
 }
 
 .select li:hover > .bottom {
+	right: 0px !important;
+	opacity: 1 !important;
+}
+
+.button:hover > .top {
+	left: 0px !important;
+	opacity: 1 !important;
+}
+
+.button:hover > .bottom {
 	right: 0px !important;
 	opacity: 1 !important;
 }
@@ -95,6 +112,8 @@ li img {
 	margin: 0px;
 	visibility: hidden;
 	transition:all 1s;
+	overflow: hidden;
+	cursor: pointer;
 
 }
 .img {
@@ -112,7 +131,6 @@ li img {
 
 .projects li span {
 	float: left;
-	border: black 1px solid;
 	width: 100px;
 	height: 25px;
 }
@@ -120,6 +138,7 @@ li img {
 .projects li:hover > .button{
 	margin-bottom: calc(20% - 25px);
 	visibility: visible;
+	z-index: 1;
 }
 
 .projects li:hover > .text{
@@ -163,4 +182,9 @@ li img {
 }
 
 
-
+.button-style {
+	border-radius: 5px 5px 5px 5px;
+	border: 1px solid black;
+	box-shadow: 0px 5px #101010;
+	
+}

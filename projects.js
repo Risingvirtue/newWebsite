@@ -1,6 +1,8 @@
 var active = 'all';
 var selectArr = ['all', 'java', 'python', 'javascript'];
 $(document).ready(function(){
+	$('#' + active + ' > .top').css({'left': '0px', 'opacity': '1'});
+	$('#' + active + ' > .bottom').css({'right': '0px', 'opacity': '1'});
 	resize();
 })
 
@@ -25,15 +27,12 @@ function selectButton(type) {
 	console.log(type);
 	
 	if (type != active) {
-		$('#' + active + ' > .top').css('left', '100%');
-		$('#' + active + ' > .top').css('opacity', '0');
-		$('#' + active + ' > .bottom').css('opacity', '0');
-		$('#' + active + ' > .bottom').css('right', '100%');
+		$('#' + active + ' > .top').css({'left': '100%', 'opacity': '0'});
+		$('#' + active + ' > .bottom').css({'right': '100%', 'opacity': '0'});
 		
-		$('#' + type + ' > .top').css('left', '0px');
-		$('#' + type + ' > .top').css('opacity', '1');
-		$('#' + type + ' > .bottom').css('opacity', '1');
-		$('#' + type + ' > .bottom').css('right', '0px');
+		$('#' + type + ' > .top').css({'left': '0px', 'opacity': '1'});
+		$('#' + type + ' > .bottom').css({'right': '0px', 'opacity': '1'});
+
 		active = type;
 	}
 	
