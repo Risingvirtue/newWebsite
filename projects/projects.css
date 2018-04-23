@@ -1,0 +1,25 @@
+h1 {
+	padding-top: 2px;
+	padding-left: 70px;
+	padding-right: 70px;
+
+}
+
+.underlined {
+	  
+	  
+      display: inline;
+      padding-bottom: 5px;
+	  border-style: solid;
+	  border-image: linear-gradient(90deg, white, black, white) 10;
+	  border-image-width: 1.5px 0px 1.5px 0px;
+}
+
+.buffer {
+	margin: 20px;
+}
+
+.smallerBuffer {
+	margin: 15px;
+}
+

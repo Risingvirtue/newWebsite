@@ -16,7 +16,7 @@ function resize() {
 	$('.projects li').css('height', height);
 	$('.img').css('height', height);
 	var width = $('#seasons').css('width');
-	var infoWidth = $('#info').css('width');
+	var infoWidth = $('#seasons-link').css('width');
 	width = width.substring(0, width.length - 2);
 	infoWidth = infoWidth.substring(0, infoWidth.length - 2);
 	$('.button').css('margin-left', (width - infoWidth) / 2 + 'px');
@@ -67,3 +67,25 @@ function selectButton(type) {
 	}, 1000)
 	//$('.javascript').css({height: 0, width: 0, opacity: "0"});
 }
+
+$('#seasons-link').click(function() {
+	window.location.href = '../projects/seasons.html';
+})
+$('#draw-link').click(function() {
+	window.location.href = '../projects/draw.html';
+})
+$('#stock-link').click(function() {
+	window.location.href = '../projects/stock.html';
+})
+$('#percolation-link').click(function() {
+	window.location.href = '../projects/percolation.html';
+})
+$('#bear-link').click(function() {
+	window.location.href = '../projects/bearMaps.html';
+})
+$('#ants-link').click(function() {
+	window.location.href = '../projects/ants.html';
+
+$('#photo-link').click(function() {
+	window.location.href = '../projects/photoTranspose.html';
+})
