@@ -85,7 +85,7 @@ $('#bear-link').click(function() {
 })
 $('#ants-link').click(function() {
 	window.location.href = '../projects/ants.html';
-
+})
 $('#photo-link').click(function() {
 	window.location.href = '../projects/photoTranspose.html';
 })
