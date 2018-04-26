@@ -2,7 +2,6 @@
 
 body {
 	background-color: #202020;
-	font-size: 20px;
 	font-family: Helvetica;
 	color: white;
 }
@@ -18,12 +17,57 @@ body {
 	text-align: center;
 }
 
+.side-bar-cell {
+	
+	text-align: center;
+	padding-top: 15px;
+	padding-left: 15px;
+	height: 50px;
+	width: 50px;
+	-webkit-transition-property: all;
+	-webkit-transition-duration: 0.3s;
+}
 .side-bar-cell:hover {
 	width: 100px;
 	
 }
 
+#fb {
+	background-color: rgb(59,89,152);
+	
+}
 
+#linkedIn {
+	background-color: rgb(0, 119, 181);
+}
+
+#github {
+	background-color: #333;
+}
+.icon {
+	font-size: 30px;
+	
+}
+
+a {
+    text-decoration: none;
+	color: #FF00FF;
+	
+}
+i {
+	float: right;
+	padding-right: 20px;
+	
+}
+
+i.fa-facebook {
+	padding-right: 25px;
+	
+}
+
+i {
+	color: white;
+}
 canvas {
 	position: absolute;
 	top: 0;

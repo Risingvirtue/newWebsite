@@ -2,16 +2,8 @@
 
 body {
 	background-color: #202020;
-	font-size: 20px;
 	font-family: Helvetica;
 	color: white;
-}
-
-#nav {
-	position: absolute;
-	left: 0px;
-	top: 50%;
-	margin-top: -97.5px;
 }
 
 .text-center {
@@ -19,7 +11,6 @@ body {
 }
 
 .side-bar-cell {
-	
 	text-align: center;
 	padding-top: 15px;
 	padding-left: 15px;
@@ -28,14 +19,10 @@ body {
 	-webkit-transition-property: all;
 	-webkit-transition-duration: 0.3s;
 }
-.side-bar-cell:hover {
-	width: 100px;
-	
-}
+
 
 #fb {
 	background-color: rgb(59,89,152);
-	
 }
 
 #linkedIn {
@@ -45,9 +32,9 @@ body {
 #github {
 	background-color: #333;
 }
+
 .icon {
 	font-size: 30px;
-	
 }
 
 a {
