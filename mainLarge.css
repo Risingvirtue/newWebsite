@@ -1,10 +1,5 @@
-
-
 body {
-	background-color: #202020;
-	font-size: 20px;
-	font-family: Helvetica;
-	color: white;
+	font-size: 20px;	
 }
 
 #nav {
@@ -23,18 +18,9 @@ body {
 	
 }
 
-
-canvas {
-	position: absolute;
-	top: 0;
-	left: 0;
-
-	z-index: -1;
-}
-
 .portfolio {
 	position: absolute;
-	margin-top: -37.5px;
+	margin-top: -50px;
 	right: 0;
 	top: 50%;
 	background-color: rgba(0,0,0,0);
@@ -44,8 +30,6 @@ canvas {
 	color: white;
 	font-size: 15px;
 	z-index: 1;
-	
-	
 }
 
 i.fa-angle-right {
@@ -66,4 +50,8 @@ i.fa-angle-right {
 
 .portfolio:hover > .portfolio-text {
 	opacity: 1;
+}
+
+#small {
+	display:none;
 }
