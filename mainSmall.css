@@ -12,7 +12,7 @@
 }
 
 .side-bar-cell {
-	float: left;
+	float: left !important;
 }
 
 

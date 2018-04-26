@@ -57,5 +57,6 @@ i.fa-angle-right {
 }
 
 #small {
-	display:none;
+	display:none !important;
+	
 }
