@@ -13,13 +13,25 @@ $(window).resize(function() {
 
 function resize() {
 	var height = $('#seasons').css('height');
-	$('.projects li').css('height', height);
-	$('.img').css('height', height);
 	var width = $('#seasons').css('width');
+	console.log(window.innerWidth);
+	if (window.innerWidth < 800) {
+		var newHeight = window.innerWidth * 0.562;
+		
+	} else {
+		newHeight = window.innerWidth * 0.562 * 0.5;
+	}
+	console.log(width, newHeight);
+	$('.projects li').css('height', newHeight + 'px');
+	$('li img').css('height', newHeight);
+	
 	var infoWidth = $('#seasons-link').css('width');
-	width = width.substring(0, width.length - 2);
+	width = convertPixel(width);
 	infoWidth = infoWidth.substring(0, infoWidth.length - 2);
 	$('.button').css('margin-left', (width - infoWidth) / 2 + 'px');
+	
+	
+	
 }
 
 
@@ -68,6 +80,11 @@ function selectButton(type) {
 	//$('.javascript').css({height: 0, width: 0, opacity: "0"});
 }
 
+
+function convertPixel(pixel) {
+	pixel = pixel.substring(0, pixel.length - 2);
+	return pixel;
+}
 $('#seasons-link').click(function() {
 	window.location.href = '../projects/seasons.html';
 })

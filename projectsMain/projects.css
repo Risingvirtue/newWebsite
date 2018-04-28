@@ -103,12 +103,12 @@ li {
 .projects li {
 	position: relative;
 	padding: 0px;
-	width: calc(50% - 30px);
+	
 	float: left;
 	
 }
 li img {
-	width: 100%;
+	
 	height: 100%;
 	padding: 0px;
 	float: left;
