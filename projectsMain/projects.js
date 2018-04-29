@@ -14,21 +14,22 @@ $(window).resize(function() {
 function resize() {
 	var height = $('#seasons').css('height');
 	var width = $('#seasons').css('width');
+	var infoWidth = $('#seasons-link').css('width');
+	infoWidth = infoWidth.substring(0, infoWidth.length - 2);
 	console.log(window.innerWidth);
 	if (window.innerWidth < 800) {
 		var newHeight = window.innerWidth * 0.562;
 		
+		$('.button').css('margin-left', (width - infoWidth) / 2 + 'px');
 	} else {
 		newHeight = window.innerWidth * 0.562 * 0.5;
+		$('.button').css('margin-left', (width/ 4 -  infoWidth -30) / 2 + 'px');
 	}
 	console.log(width, newHeight);
 	$('.projects li').css('height', newHeight + 'px');
 	$('li img').css('height', newHeight);
 	
-	var infoWidth = $('#seasons-link').css('width');
-	width = convertPixel(width);
-	infoWidth = infoWidth.substring(0, infoWidth.length - 2);
-	$('.button').css('margin-left', (width - infoWidth) / 2 + 'px');
+	
 	
 	
 	
