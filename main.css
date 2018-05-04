@@ -1,15 +1,17 @@
 body {
 	background-color: #202020;
-	font-size: 20px;
 	font-family: Helvetica;
 	color: white;
+	overflow: hidden;
 }
-
-#nav {
-	position: absolute;
-	left: 0px;
-	top: 50%;
-	margin-top: -97.5px;
+#intro {
+	display: table;
+	margin: auto;
+	vertical-align: center;
+	-webkit-user-select: none; /* Safari */        
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+/Edge */
+	user-select: none; /* Standard */
 }
 
 .text-center {
@@ -17,7 +19,6 @@ body {
 }
 
 .side-bar-cell {
-	
 	text-align: center;
 	padding-top: 15px;
 	padding-left: 15px;
@@ -26,14 +27,10 @@ body {
 	-webkit-transition-property: all;
 	-webkit-transition-duration: 0.3s;
 }
-.side-bar-cell:hover {
-	width: 100px;
-	
-}
+
 
 #fb {
 	background-color: rgb(59,89,152);
-	
 }
 
 #linkedIn {
@@ -43,9 +40,9 @@ body {
 #github {
 	background-color: #333;
 }
+
 .icon {
 	font-size: 30px;
-	
 }
 
 a {
@@ -71,29 +68,5 @@ canvas {
 	position: absolute;
 	top: 0;
 	left: 0;
-
 	z-index: -1;
 }
-
-.portfolio {
-	position: absolute;
-	margin-top: -37.5px;
-	right: 0px;
-	top: 50%;
-	background-color: rgba(0,0,0,0);
-	border: white 1px solid;
-	
-	width: 150px;
-	height: 75px;
-	color: white;
-	font-size: 15px;
-	
-	
-}
-
-i.fa-angle-right {
-
-	margin: auto;
-	font-size: 50px;
-}
-

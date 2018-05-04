@@ -13,13 +13,26 @@ $(window).resize(function() {
 
 function resize() {
 	var height = $('#seasons').css('height');
-	$('.projects li').css('height', height);
-	$('.img').css('height', height);
 	var width = $('#seasons').css('width');
 	var infoWidth = $('#seasons-link').css('width');
-	width = width.substring(0, width.length - 2);
 	infoWidth = infoWidth.substring(0, infoWidth.length - 2);
-	$('.button').css('margin-left', (width - infoWidth) / 2 + 'px');
+	console.log(window.innerWidth);
+	if (window.innerWidth < 800) {
+		var newHeight = window.innerWidth * 0.562;
+		
+		$('.button').css('margin-left', (width - infoWidth) / 2 + 'px');
+	} else {
+		newHeight = window.innerWidth * 0.562 * 0.5;
+		$('.button').css('margin-left', (width/ 4 -  infoWidth -30) / 2 + 'px');
+	}
+	console.log(width, newHeight);
+	$('.projects li').css('height', newHeight + 'px');
+	$('li img').css('height', newHeight);
+	
+	
+	
+	
+	
 }
 
 
@@ -68,6 +81,11 @@ function selectButton(type) {
 	//$('.javascript').css({height: 0, width: 0, opacity: "0"});
 }
 
+
+function convertPixel(pixel) {
+	pixel = pixel.substring(0, pixel.length - 2);
+	return pixel;
+}
 $('#seasons-link').click(function() {
 	window.location.href = '../projects/seasons.html';
 })
@@ -85,7 +103,7 @@ $('#bear-link').click(function() {
 })
 $('#ants-link').click(function() {
 	window.location.href = '../projects/ants.html';
-
+})
 $('#photo-link').click(function() {
 	window.location.href = '../projects/photoTranspose.html';
 })

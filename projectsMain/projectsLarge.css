@@ -1,0 +1,10 @@
+.projects li {
+	width: calc(50% - 30px);
+
+
+	
+}
+
+li img {
+	width: 100%;
+}
