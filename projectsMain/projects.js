@@ -12,20 +12,23 @@ $(window).resize(function() {
 });
 
 function resize() {
-	var height = $('#seasons').css('height');
+	$(".img").css({width: '100%', height: '100%'});
 	var width = $('#seasons').css('width');
+	width = width.substring(0, width.length - 2);
 	var infoWidth = $('#seasons-link').css('width');
 	infoWidth = infoWidth.substring(0, infoWidth.length - 2);
-	console.log(window.innerWidth);
 	if (window.innerWidth < 800) {
-		var newHeight = window.innerWidth * 0.562;
-		
-		$('.button').css('margin-left', (width - infoWidth) / 2 + 'px');
+		var newHeight = window.innerWidth * 0.7 * 0.562;
+	
+		$('.button').css('margin-left', (width - infoWidth) / 2);
 	} else {
-		newHeight = window.innerWidth * 0.562 * 0.5;
-		$('.button').css('margin-left', (width/ 4 -  infoWidth -30) / 2 + 'px');
+		
+		newHeight = window.innerWidth * 0.7 * 0.5 * 0.562;
+		var buttonRect = document.getElementById("seasons-link").getBoundingClientRect();
+		
+		$('.button').css('margin-left', (window.innerWidth * 0.7 * 0.5 - 30 - buttonRect.width) / 2);
 	}
-	console.log(width, newHeight);
+	
 	$('.projects li').css('height', newHeight + 'px');
 	$('li img').css('height', newHeight);
 	
