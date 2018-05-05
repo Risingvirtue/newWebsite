@@ -20,13 +20,13 @@ function resize() {
 	if (window.innerWidth < 800) {
 		var newHeight = window.innerWidth * 0.7 * 0.562;
 	
-		$('.button').css('margin-left', (width - infoWidth) / 2);
+		//$('.button').css('margin-left', (width - infoWidth) / 2);
 	} else {
 		
 		newHeight = window.innerWidth * 0.7 * 0.5 * 0.562;
 		var buttonRect = document.getElementById("seasons-link").getBoundingClientRect();
 		
-		$('.button').css('margin-left', (window.innerWidth * 0.7 * 0.5 - 30 - buttonRect.width) / 2);
+		//$('.button').css('margin-left', (window.innerWidth * 0.7 * 0.5 - 30 - buttonRect.width) / 2);
 	}
 	
 	$('.projects li').css('height', newHeight + 'px');
