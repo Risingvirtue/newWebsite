@@ -9,7 +9,15 @@ $(window).resize(function() {
 
 function submitForm() {
 	var name = $("#name").val();
-	if (!name) {
+	var email = $("#email").val();
+	var message = $("#message").val();
+	if (name == "") {
+		
+	} else if (email == "") {
+		
+	} else if (message == "") {
+		
+	} else {
 		
 	}
 }
