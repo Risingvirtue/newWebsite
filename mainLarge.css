@@ -23,16 +23,16 @@ body {
 }
 
 .portfolio {
-	position: absolute;
-	margin-top: -50px;
-	right: 0;
+	position: fixed;
+	margin-top: -38px;
+	right: 7px;
 	top: 50%;
 	background-color: rgba(0,0,0,0);
 	border: white 0px solid;
 	width: 150px;
-	height: 75px;
+	height: 76px;
 	color: white;
-	font-size: 15px;
+	font-size: 20px;
 	z-index: 1;
 }
 

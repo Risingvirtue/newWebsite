@@ -35,10 +35,29 @@ input, textarea {
 	font-family: Helvetica;
 	font-size: 16px;
 	resize: none;
+	background: #505050;
+	border: none;
+	padding: 10px;
+	color: #fff;
+
 }
 
 .input {
 	margin-top: 3px;
+	
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #fff;
+    opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #fff;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: #fff;
 }
 
 .submit {
@@ -60,8 +79,11 @@ input, textarea {
 
 .submit-container {
 	text-align: right;
-	
-	
+}
+
+#sent {
+	height: 40px;
+	width: 360px;
 }
 
 
@@ -86,7 +108,7 @@ button {
 .main {
 	position: fixed;
 	margin-top: -38px;
-	left: 0;
+	left: 15px;
 	top: 50%;
 	background-color: rgba(0,0,0,0);
 	border: white 0px solid;
@@ -98,7 +120,7 @@ button {
 }
 
 .main-text {
-	position: relative; 
+	position: relative;
 	top: -10px;
 	left: 10px;
 	opacity: 0;
@@ -111,7 +133,7 @@ button {
 .contact {
 	position: fixed;
 	margin-top: -38px;
-	right: 0;
+	right: -8px;
 	top: 50%;
 	background-color: rgba(0,0,0,0);
 	border: white 0px solid;
@@ -133,4 +155,48 @@ button {
 	
 	-webkit-transition-property: all;
 	-webkit-transition-duration: 1s;
+}
+
+
+.tooltip {
+    position: relative;
+   
+}
+
+.tooltip .tooltiptext {
+	display: none;
+	font-size: 15px;
+    visibility: visible;
+    width: 190px;
+    background-color: white;
+    color: black;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: 90%;
+    left: 35%;
+    margin-left: -60px;
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::before {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 15%;
+    margin-left: -5px;
+	
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent white transparent;
+}
+
+#tool-message {
+	top: 30%;
+}
+.submit {
+	color: black;
 }
